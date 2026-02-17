@@ -3,9 +3,6 @@
 .RData
 .Rproj.user
 *.Rproj
-renv/library/
-renv/staging/
-renv/cellar/
 
 # OS
 .DS_Store
