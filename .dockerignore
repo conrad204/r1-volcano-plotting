@@ -25,3 +25,8 @@ data/test_real_flc.csv
 Dockerfile
 docker-compose.yml
 .dockerignore
+
+# R build artifacts
+renv/
+.Rprofile
+*.tar.gz

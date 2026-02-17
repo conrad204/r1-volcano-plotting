@@ -1,8 +1,21 @@
-version: '3.8'
 services:
   app:
     image: cfeng204/volcano-api:latest
-    build: .
+    build:
+      context: .
+      dockerfile: Dockerfile
     ports:
       - "8000:8000"
     restart: unless-stopped
+    tmpfs:
+      - /tmp:size=64M
+    healthcheck:
+      test: ["CMD", "curl", "-sf", "http://localhost:8000/summary"]
+      interval: 30s
+      timeout: 5s
+      retries: 3
+      start_period: 15s
+    deploy:
+      resources:
+        limits:
+          memory: 1G
