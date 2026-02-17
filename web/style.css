@@ -1,0 +1,32 @@
+html, body {
+  height: 100%;
+  box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    padding: 30px;
+    font-family: sans-serif;
+}
+
+.container {
+    display: flex;
+    gap: 20px;
+    align-items: center;
+    min-height: calc(100vh - 32px);
+}
+
+.controls {
+  flex: 1;
+  padding: 12px;
+  background: #f9f9f9;
+  border-radius: 4px;
+}
+
+.plot-panel {
+  flex: 0 0 95vh;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+}
+

@@ -1,0 +1,23 @@
+# R
+.Rhistory
+.RData
+.Rproj.user
+*.Rproj
+renv/library/
+renv/staging/
+renv/cellar/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# IDE
+.vscode/
+.idea/
+
+# Uploaded / temp data
+uploads/
+tmp/
+
+# Large test data
+data/test_real_flc.csv

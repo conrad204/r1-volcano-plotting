@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>volcano plotting</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class = "container">
+    <div class="controls">
+      <input id="gene" placeholder="Enter gene (e.g., Notch3)" autocomplete="off" spellcheck="false" autocorrect="off" autocapitalize="off" />
+      <button onclick="addGene()">Add</button>
+      <button onclick="resetGenes()">Reset</button>
+      
+      <div style="margin-top:16px; padding:12px; background:#fff3cd; border-radius:4px;">
+        <label style="display:block; margin-bottom:6px; font-weight:bold;">Upload Custom CSV:</label>
+        <input type="file" id="csvFile" accept=".csv" style="display:block; margin-bottom:6px;" />
+        <button onclick="uploadCSV()" style="background:#007bff; color:white; border:none; padding:6px 12px; border-radius:4px; cursor:pointer;">Upload & Process</button>
+        <small style="display:block; margin-top:6px; color:#856404;">Required columns: EnsemblID (ENSMUSG) OR GeneName, log2FoldChange, padj</small>
+      </div>
+      
+      <p>Red and blue points are automatically colored if significant & >2 log2 fold change</p>
+      <p>also it takes ages to load so give it a sec :p</p>
+
+      <button id="toggleLabelsBtn" style="margin-bottom:6px;">Threshold labels: Off</button>
+      
+      <div style="margin-top:8px;">
+        <label for="lfc">log2 fold-change threshold: <strong><input id="lfc_val" type="number" min="0" max="8" step="0.01" value="1" style="width:5.5ch" /></strong></label>
+        <div class="slider-wrap">
+          <input id="lfc" type="range" min="0" max="8" step="0.01" value="1" style="width:300px; vertical-align:middle;" />
+        </div>
+      </div>
+
+      <div style="margin-top:8px;">
+        <label for="minlogp">-log10(padj) threshold: <strong><input id="minlogp_val" type="number" min="0" max="75" step="0.01" value="2" style="width:5.5ch" /></strong></label> 
+        <div class="slider-wrap">
+          <input id="minlogp" type="range" min="0" max="75" step="0.01" value="2" style="width:300px; vertical-align:middle;" />
+        </div>
+      </div>
+      
+      <div style="margin-top:12px; padding:10px; background:#e7f3ff; border-radius:4px; border-left:4px solid #0066cc;">
+        <strong>Current thresholds:</strong><br>
+        <span style="color:#0066cc;">Fold Change: <strong id="fc_display">2.00</strong></span><br>
+        <span style="color:#0066cc;">Adjusted p-value: <strong id="padj_display">0.01</strong></span>
+      </div>
+      
+      <p style="color: red;">WARNING! please don't use the sliders cause they make loading too long (fix todo)!</p>
+
+      <pre id="out"></pre>
+    </div>
+
+    <div class = "plot-panel">
+      <img id="plot" style="width:100%"/>
+    </div>
+  </div>
+  
+  <script src = "script.js"></script>
+</body>
+</html>

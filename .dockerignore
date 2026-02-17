@@ -1,0 +1,27 @@
+# Git
+.git
+.gitignore
+
+# IDE / editor junk
+.Rhistory
+.RData
+.Rproj.user
+*.Rproj
+.vscode/
+.idea/
+
+# OS junk
+.DS_Store
+Thumbs.db
+
+# Docs (not needed in image)
+README.md
+LICENSE
+
+# Test/sample data (example.csv is COPYed explicitly)
+data/test_real_flc.csv
+
+# Docker files themselves
+Dockerfile
+docker-compose.yml
+.dockerignore
